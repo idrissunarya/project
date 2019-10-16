@@ -1,0 +1,7 @@
+/* == edit box-login == */
+.box-login {
+    border: solid 1px gray;
+    border-radius: 1.5%;
+    padding: 5%;
+    margin-top: 25%;
+}

@@ -1,0 +1,40 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+      {% block meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      {% endblock meta %}
+
+      {% block favicon %}
+      {% endblock %}
+
+      <title> Django | {% block title %}{% endblock %}</title>
+
+      {% block stylesheets %}
+      <link rel="stylesheet" type="text/css" href="{% static 'semantic_ui/out/semantic.css' %}">
+
+      <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+      <script src="{% static 'semantic_ui/out/semantic.min.js' %}"></script>
+      {% endblock stylesheets %}
+
+      {% block extra %}
+      {% endblock %}
+
+    {% endblock head %}
+  </head>
+
+  <body>
+    {% block content %}
+
+    {% endblock content %}
+  </body>
+  </html>
