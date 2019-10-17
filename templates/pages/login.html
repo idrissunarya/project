@@ -38,7 +38,16 @@
                             </div>
 
                             <button class="ui positive basic button" type="submit">Submit</button>   
-                            <p>{{ error }}</p>                        
+                            
+                            {% for message in messages %}
+                              <div class="ui negative message transition">
+                                <i class="close icon"></i>
+                                <p>
+                                  {{ message }}
+                                </p>
+                              </div>
+                            {% endfor %}
+
                     </form>
                   </div>
                 </div>
@@ -46,4 +55,18 @@
 
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+
+    <script>
+      $('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  })
+;
+    </script>
 {% endblock %}

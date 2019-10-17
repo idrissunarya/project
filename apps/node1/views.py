@@ -2,6 +2,8 @@ from django.shortcuts import render,HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
+from django.contrib import messages
+
 def login(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -13,7 +15,9 @@ def login(request):
             return render(request, 'pages/dashboard.html')
 
         else:
-            return HttpResponse('failed login')
+            #return HttpResponse('failed login')
+            messages.error(request,'username or password not correct')
+            return render(request, 'pages/login.html')
     else:
         return render (request, 'pages/login.html')
 
