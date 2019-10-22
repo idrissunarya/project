@@ -37,9 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap4',
     'apps.node1',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -129,5 +127,5 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    '/home/idris/workspace/belajar/project/static'
+    '/home/eos-pc/workspace/belajar/project/static/'
 ]
