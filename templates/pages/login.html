@@ -18,22 +18,27 @@
         <div class="ui two column centered grid">
 
             
-            <div class="column">
+            <div class="column inverted">
                 <div class="box-login">
+                    <h4 class="ui horizontal divider header">
+                        <i class="key icon"></i>
+                        Dashboard
+                      </h4>
+
                     <form class="ui form" method="POST">
                       {% csrf_token %}
                             <div class="field">
                               <label>Username</label>
                               <div class="ui left icon input">
                                 <input type="text" name="username" placeholder="Username" id="username">
-                                <i class="user-icon"></i>
+                                <i class="user icon"></i>
                               </div>
                             </div>
                             <div class="field">
                               <label>Password</label>
                               <div class="ui left icon input">
                                 <input type="password" name="password" placeholder="Password" id="password">
-                              <i class="key-icon"></i>
+                              <i class="key icon"></i>
                               </div>
                             </div>
 

@@ -6,3 +6,10 @@
     padding-bottom: 10%;
     margin-top: 25%;
 }
+
+.title-dash h4 {
+    width: 100%;
+    height: 50px;
+    background-color: lightgreen;
+    text-align: center;
+}

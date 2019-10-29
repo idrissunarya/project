@@ -129,3 +129,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     '/home/eos-pc/workspace/belajar/project/static/'
 ]
+
+LOGIN_REDIRECT_URL = '/dashboard'

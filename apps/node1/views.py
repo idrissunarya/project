@@ -1,8 +1,11 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
 from django.contrib import messages
+
+def web(request):
+    return render (request, 'pages/web.html')
 
 def login(request):
     if request.method == "POST":
@@ -10,8 +13,8 @@ def login(request):
         password = request.POST['password']
 
         user = authenticate(request, username=username, password=password)
-        if user:
-            #return HttpResponse('success login')
+        print(user)
+        if user is not None:
             return render(request, 'pages/dashboard.html')
 
         else:
@@ -20,7 +23,6 @@ def login(request):
             return render(request, 'pages/login.html')
     else:
         return render (request, 'pages/login.html')
-
 
 def dashboard(request):
     return render (request, 'pages/dashboard.html')
