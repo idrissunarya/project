@@ -12,5 +12,16 @@
 {% block content %}
     <div class="ui container">
         <h5>Page website</h5>
+        {% if user.is_authenticated %}
+            <p>Welcome {{ user.username }} logged success</p>
+            <p>
+                <a href="{% url 'logout' %}">logout</a>
+            </p>
+        {% else %}
+            <p>no logged !!</p>
+            <p>
+                <a href="{% url 'login' %}">login</a>
+            </p>
+        {% endif %}
     </div>
 {% endblock %}

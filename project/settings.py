@@ -130,4 +130,5 @@ STATICFILES_DIRS = [
     '/home/eos-pc/workspace/belajar/project/static/'
 ]
 
-LOGIN_REDIRECT_URL = '/dashboard'
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_REDIRECT_URL = '/'
