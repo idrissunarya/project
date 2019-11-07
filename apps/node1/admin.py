@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Member
+from .models import Member, Location
 
 class MemberModelAdmin(admin.ModelAdmin):
     list_display = [
@@ -9,3 +9,13 @@ class MemberModelAdmin(admin.ModelAdmin):
         model = Member
 
 admin.site.register(Member, MemberModelAdmin)
+
+class LocationModelAdmin(admin.ModelAdmin):
+    list_display = [
+        'address', 'street', 'country'
+    ]
+
+    class Meta:
+        model = Location
+
+admin.site.register(Location, LocationModelAdmin)

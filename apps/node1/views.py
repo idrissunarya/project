@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 def web(request):
-    return render (request, 'pages/web.html')
+    if request.method == 'GET':
+        return render (request, 'pages/web.html')
 
 def login(request):
     if request.method == "POST":
@@ -16,6 +17,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         print(user)
         if user.is_authenticated:
+            messages.success(request,'Improve your profile today!')
             return render(request, 'pages/dashboard.html')
             #return HttpResponse ('success')
 
@@ -24,6 +26,7 @@ def login(request):
             messages.error(request,'username or password not correct')
             return render(request, 'pages/login.html')
     else:
+            #messages.error(request, 'jangan by pass bos !!')
         return render (request, 'pages/login.html')
 
 def register(request):
@@ -45,12 +48,7 @@ def register(request):
     return render (request, 'registration/register.html', context)
 
 def logout(request):
-   # auth.logout(request)
-   # messages.success(
-   #     request,
-   #     _('you have been signed out.')
-    #)
     return render (request, 'registration/logout.html')
 
 def dashboard(request):
-    return render (request, 'pages/dashboard.html')
+   return render (request, 'pages/dashboard.html')

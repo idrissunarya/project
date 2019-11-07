@@ -10,18 +10,71 @@
 {% endblock %}
 
 {% block content %}
-    <div class="ui container">
-        <h5>Page website</h5>
-        {% if user.is_authenticated %}
-            <p>Welcome {{ user.username }} logged success</p>
-            <p>
-                <a href="{% url 'logout' %}">logout</a>
-            </p>
-        {% else %}
-            <p>no logged !!</p>
-            <p>
-                <a href="{% url 'login' %}">login</a>
-            </p>
-        {% endif %}
-    </div>
+<div class="ui inverted mini menu">
+        <a class="active item">
+          Home
+        </a>
+        <a class="item">
+          Profile
+        </a>
+        <a class="item">
+          Products
+        </a>
+        <a class="item">
+            Portfolio
+        </a>
+        <a class="item">
+            Contact Us
+        </a>
+        
+        <div class="right menu"> 
+            <div class="item">
+                <div class="ui left icon input">
+                  <input type="text" placeholder="Search...">
+                  <i class="search link icon"></i>
+                </div>
+            </div>
+
+          <div class="ui dropdown item">
+            Language <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item">Id &nbsp;
+                <i class="id flag center"></i>
+              </a>
+              <a class="active item">Uk &nbsp;
+                <i class="uk flag center"></i>
+              </a>
+              <a class="item">Cn &nbsp;
+                <i class="cn flag center"></i>
+              </a>
+              <a class="item">Sp &nbsp;
+                <i class="es flag center"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="item">
+                <div class="ui mini buttons">
+                        <button class="ui green button">
+                            <a href="{% url 'login' %}" style="color: white">Sign In</a>
+                        </button>
+
+                        <div class="or"></div>
+                        
+                        <button class="ui teal button">
+                            <a href="{% url 'register' %}" style="color: white">Sign Up</a>
+                        </button>
+                </div>
+          </div>
+          
+        </div>
+      </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+
+        <script>
+            $('.ui.dropdown')
+            .dropdown();
+        </script>
 {% endblock %}

@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from django_countries.fields import CountryField
+
 class Member(models.Model):
     GLOBAL = 'GIC'
     SATYA = 'SMG'
@@ -61,4 +63,17 @@ class Member(models.Model):
 
     def __str__(self):
         return self.first_name
+
+
+class Location(models.Model):
+    address = models.CharField(max_length=128)
+    street = models.CharField(max_length=128)
+    postal = models.IntegerField()
+    country = CountryField(blank_label='(select country)')
+
+    class Meta:
+        ordering = ['address']
+
+    def __str__(self):
+        return self.address
 

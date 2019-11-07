@@ -18,7 +18,7 @@ from django.urls import path, include
 from apps.node1 import views
 
 urlpatterns = [
-    #path('', views.web, name='web'),
+    path('', views.web, name='web'),
     #path('login/', views.login, name='login'),
     #path('dashboard/', views.dashboard, name='dashboard'),
     path('', include('apps.node1.urls')),
