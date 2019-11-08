@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
 from django.contrib import messages
+from apps.node1.forms import SignUpForm
 
 def web(request):
     if request.method == 'GET':
@@ -29,23 +29,39 @@ def login(request):
             #messages.error(request, 'jangan by pass bos !!')
         return render (request, 'pages/login.html')
 
-def register(request):
+def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
-            print(user)
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+
+            user = authenticate(username=username, password=raw_password)
+            #login(request, user)
             return redirect('login')
 
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
+    return render(request, 'registration/register.html', {'form': form })
 
-    context = {'form' : form }
-    return render (request, 'registration/register.html', context)
+#def register(request):
+#    if request.method == 'POST':
+#        form = UserCreationForm(request.POST)
+
+#        if form.is_valid():
+#            form.save()
+#            username = form.cleaned_data['username']
+#            password = form.cleaned_data['password1']
+#            user = authenticate(username=username, password=password)
+#            print(user)
+#            return redirect('login')
+
+#    else:
+#        form = UserCreationForm()
+
+#    context = {'form' : form }
+#    return render (request, 'registration/register.html', context)
 
 def logout(request):
     return render (request, 'registration/logout.html')

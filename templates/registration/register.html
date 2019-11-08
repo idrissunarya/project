@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>register</title>
-</head>
-<body>
-    <h2>Register Page</h2>
-    <form method="post" action="{% url 'register' %}">
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <form class="ui form" method="post" action="{% url 'signup' %}">
         {% csrf_token %}
+        {{ form.as_p }}
 
-        {% if form.errors %}
-            <p>There are errors in the form</p>
-        {% endif %}
-
-        {{ form }}
-
-        <input type="submit" value="Register">
+        <button class="ui right floated positive basic button" type="submit" value="signup">Submit</button>
+        <input type="hidden" value="{{ next }}" name="next">
     </form>
-    
-</body>
-</html>
+</div>
+{% endblock %}
