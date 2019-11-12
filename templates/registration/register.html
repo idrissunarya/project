@@ -11,92 +11,16 @@
         {% csrf_token %}
         <h3 class="ui centered dividing header">You must signup here</h3>
         <p>&nbsp;</p>
-        <!--
-        <div class="field">
-            <label for="id_username">Name Informations</label>
-            <div class="three fields">
-                <div class="field">
-                    <p>
-                        <input type="text" name="shipping[username]" placeholder="username" id="id_username">
-                        <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
-                    </p>
-                </div>
-                <div class="field">
-                    <p>
-                        <input type="text" name="shipping[first name]" placeholder="first name" id="id_first_name">
-                    </p>
-                </div>
-                <div class="field">
-                    <p>
-                        <input type="text" name="shipping[last name]" placeholder="last name" id="id_last_name">
-                    </p>
-                </div>
-            </div>
-        </div>
+
+
+        {{ form.as_p }}
 
         <div class="field">
-            <label for="id_password">Secret password confirmation</label>
-            <div class="three fields">
-                <div class="field">
-                    <p>
-                        <input type="text" name="shipping[raw password]" placeholder="raw password" id="id_password">
-                    </p>
-                </div>
-                <div class="field">
-                    <p>
-                        <input type="password" name="shipping[password]" placeholder="password" id="id_password1">
-                    </p>
-                </div>
-                <div class="field">
-                    <p>
-                        <input type="password" name="shipping[confirmation password]" placeholder="password confirmation" id="id_password2">
-                    </p>
-                </div>
-            </div>
+            <button class="ui positive basic button" type="submit" value="signup">Submit</button>
+            <input type="hidden" value="{{ next }}" name="next">
         </div>
-
-        <div class="field">
-            <label>Email information</label>
-            <div class="two fields">
-                <div class="field">
-                    <p>
-                        <input type="email" name="shipping[your email]" placeholder="your email" id="id_email">
-                    </p>
-                </div>
-                -->
-
-                <div class="three fields">
-                    <div class="field">
-                        <p>
-                            <label for="id_username"></label>
-                            <input type="text" name="username" id="username" placeholder="Username">
-                        </p>
-                    </div>
-
-                    <div class="field">
-                        <p>
-                            <label for="id_firstname"></label>
-                            <input type="text" name="first_name" id="firstname" placeholder="first name">
-                        </p>
-                    </div>
-
-                    <div class="field">
-                        <p>
-                            <label for="id_lastname"></label>
-                            <input type="text" name="last_name" id="lastname" placeholder="last name">
-                        </p>
-                    </div>
-                </div>
-
-                {{ form.as_p }}
-
-                <div class="field">
-                    <button class="ui positive basic button" type="submit" value="signup">Submit</button>
-                    <input type="hidden" value="{{ next }}" name="next">
-                </div>
-            </div>
-        </div>
-
     </form>
+
+    <h3 class="ui centered dividing header"></h3>
 </div>
 {% endblock %}

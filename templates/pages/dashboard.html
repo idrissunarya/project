@@ -55,7 +55,7 @@
          </a>
 
         <a class="item" href="{% url 'signup' %}"><i class="teal user icon"></i></a>
-        <a class="item"><i class="blue chart bar icon"></i></a>
+        <a class="item" href="{% url 'coba' %}"><i class="blue chart bar icon"></i></a>
         <a class="item"><i class="blue dolly flatbed icon"></i></a>
         <a class="item"><i class="orange bullhorn icon"></i></a>
         <a class="item"><i class="yellow shipping fast icon"></i></a>
@@ -184,9 +184,44 @@
                         </div>
                       </div>
 
-                <!--
-                <a href="{% url 'logout' %}">Logout here</a> -->
-                {% else %}
+            <p>&nbsp;</p>
+
+            <div class="ui divider"></div>
+
+            <p>&nbsp;</p>
+
+            <div class="ui two column stackable grid">
+                <div class="column">
+                    <div class="ui segment">
+                        <h4 class="ui center aligned header">List User</h4>
+                        {% include 'shared/list_user.html' %}
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="ui segment">
+                        <h4 class="ui centered aligned header">Cards user</h4>
+                        {% include 'shared/card_user.html' %}
+                    </div>
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+
+            <div class="ui divider"></div>
+
+            <p>&nbsp;</p>
+
+            <div class="ten wide column">
+                <div class="ui segment">
+                    <h4 class="ui centered aligned header">List email</h4>
+                    {% for obj in queryset %}
+                        {{ obj.sender }}
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% else %}
                     <div class="ui container">
                         <p>Not access page !! you not login</p>
                     

@@ -83,3 +83,18 @@ class Location(models.Model):
     def __str__(self):
         return self.address
 
+class Coba(models.Model):
+    subject = models.CharField(max_length=64)
+    sender = models.EmailField()
+    compose = models.TextField(default='mail in here')
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    class Meta:
+        ordering = ['sender']
+
+    def __str__(self):
+        return self.sender
+
+class Product(models.Model):
+    name = models.CharField(max_length=128)

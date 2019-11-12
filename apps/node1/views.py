@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib import messages
-from apps.node1.forms import SignUpForm
+from apps.node1.forms import SignUpForm, TestForm
+from .models import Coba
 
 def web(request):
     if request.method == 'GET':
@@ -68,3 +69,22 @@ def logout(request):
 
 def dashboard(request):
    return render (request, 'pages/dashboard.html')
+
+def coba(request):
+    if request.method == 'POST':
+        form = TestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            subject = form.cleaned_data.get('subject')
+            sender = form.cleaned_data.get('sender')
+
+            send = authenticate(subject=subject, sender=sender)
+            return redirect('dashboard')
+
+    else:
+        queryset = Coba.objects.all()
+        context = {
+            "q": queryset
+        }
+        form = TestForm()
+    return render(request, 'pages/coba.html', {'form' : form }, context)
