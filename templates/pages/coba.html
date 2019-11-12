@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %
+{% if user.is_authenticated %}
     <div class="ui sidebar vertical left inverted menu">
         <div class="item">
              <h5>Dashboard</h5>
@@ -90,10 +90,16 @@
 
         <div class="ui container">
             <div class="ui divider horizontal">list email</div>
-            {% for obj in q %}
+            {% for obj in queryset %}
                 {{ obj.sender }}
             {% endfor %}
         </div>
+
+        {% else %}
+            <div class="ui container">
+                <p>not access page !!</p>
+            </div>
+        {% endif %}
     </div>
 </div>
 

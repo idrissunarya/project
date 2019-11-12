@@ -20,8 +20,9 @@ from apps.node1 import views
 urlpatterns = [
     path('', views.web, name='web'),
     #path('login/', views.login, name='login'),
-    #path('dashboard/', views.dashboard, name='dashboard'),
+    path('dashboard/', views.dashboard, name='dashboard'),
     path('', include('apps.node1.urls')),
+    path('success/', views.success_email, name='success_email'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -1,0 +1,31 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="ui container">
+    <div class="ten wide column">
+        <div class="column">
+            <p>Email Record Successfully</p>
+            {% for obj in queryset %}
+                {{ obj.sender }}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="six wide column">
+        <div class="column">
+            <div class="ui segment">
+                {% include 'shared/card_user.html' %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% else %}
+    <div class="ui container">
+        <p>Not Access page !!</p>
+    </div>
+{% endif %}
+{% endblock %}

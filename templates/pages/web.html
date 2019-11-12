@@ -70,6 +70,18 @@
         </div>
       </div>
 
+    <div class="container">
+      <div class="ten wide column">
+          <div class="column">
+              {% for obj in queryset %}
+                {{ obj.sender }} <br>
+                {{ obj.subject }}
+              {% endfor %}
+              <p>test lorem ipsum</p>
+          </div>
+      </div>
+    </div>
+
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
 
